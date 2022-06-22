@@ -3,8 +3,24 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
-  <router-view />
+  <!-- <router-view /> -->
+  <Modal :header="header" :content="content" theme="sale" />
 </template>
+
+<script>
+import Modal from "./components/ModalDiv.vue";
+export default {
+  name: "App",
+  components: { Modal },
+  data() {
+    return {
+      title: "TestSkill",
+      header: "Sign up for the Giveaway!",
+      content: "Grab your ninja :)",
+    };
+  },
+};
+</script>
 
 <style>
 #app {
@@ -26,5 +42,11 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+h1 {
+  color: #03cfb4;
+  border: none;
+  padding: 0;
 }
 </style>
