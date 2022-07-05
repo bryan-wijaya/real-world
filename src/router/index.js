@@ -1,11 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import FormView from "../views/FormView.vue";
+import NotFound from "../views/NotFound.vue";
+import Jobs from "../views/Jobs/JobsView.vue";
+import JobDetail from "../views/Jobs/JobDetails.vue";
 
 const routes = [
   {
     path: "/",
-    name: "home",
+    name: "HomeView",
     component: HomeView,
   },
   {
@@ -19,9 +22,26 @@ const routes = [
   },
   {
     path: "/form",
-    name: "form",
+    name: "FormView",
     component: FormView,
   },
+  {
+    path: "/jobs",
+    name: "Jobs",
+    component: Jobs,
+  },
+  {
+    path: "/jobs/:id",
+    name: "JobDetail",
+    component: JobDetail,
+    props: true
+  },
+  //catch all 404
+  {
+    path: "/:catchAll(.*)",
+    name: "NotFound",
+    component: NotFound,
+  }
 ];
 
 const router = createRouter({
